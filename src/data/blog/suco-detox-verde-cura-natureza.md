@@ -1,7 +1,7 @@
 ---
 author: Anderson Kochanski
 pubDatetime: 2026-05-12T21:45:00Z
-title: Suco Detox Verde: Limpeza Natural e Energia - Série Cura Natureza
+title: "Suco Detox Verde: Limpeza Natural e Energia - Série Cura Natureza"
 postSlug: suco-detox-verde-limpeza
 featured: true
 draft: false
@@ -12,7 +12,7 @@ tags:
 description: Descubra como o Suco Detox Verde pode revitalizar seu corpo. Uma receita exclusiva da série Cura Natureza no Receita Grátis.
 ---
 
-![Suco Detox Verde Refrescante](https://images.unsplash.com/photo-1610970882739-a69c1f9305f6?q=80&w=1000&auto=format&fit=crop)
+![Suco Detox Verde](https://images.unsplash.com/photo-1610970882739-a69c1f9305f6?q=80&w=1000&auto=format&fit=crop)
 *Foto: Ingredientes naturais para uma desintoxicação completa.*
 
 O portal **Receita Grátis** apresenta mais um capítulo da série **Cura Natureza**. Hoje, vamos focar na eliminação de toxinas e no aumento da disposição com o nosso famoso **Suco Detox Verde**.
@@ -51,9 +51,6 @@ Sim, você pode usar abacaxi ou pera para variar o sabor e manter os benefícios
 **Devo tomar em jejum?**
 Sim, tomar o suco verde em jejum potencializa a absorção dos micronutrientes pelo organismo.
 
----
-
-<!-- SEO: DADOS ESTRUTURADOS PARA RESULTADOS RICOS -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org/",
