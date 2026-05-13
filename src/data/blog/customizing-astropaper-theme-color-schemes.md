@@ -1,148 +1,93 @@
 ---
-author: Sat Naing
-pubDatetime: 2022-09-25T15:20:35Z
-modDatetime: 2026-01-09T15:00:15.170Z
-title: Customizing AstroPaper theme color schemes
-featured: false
+author: Anderson Kochanski
+pubDatetime: 2026-05-12T21:30:00Z
+title: O Poder do Chá de Gengibre com Limão - Série Cura Natureza
+postSlug: cha-gengibre-limao-imunidade
+featured: true
 draft: false
 tags:
-  - color-schemes
-  - docs
-description:
-  How you can enable/disable light & dark mode; and customize color schemes
-  of AstroPaper theme.
+  - cura-natureza
+  - receitas-saudaveis
+  - bem-estar
+description: Fortaleça sua imunidade com esta receita poderosa de Chá de Gengibre com Limão. Parte do especial Receita Grátis.
 ---
 
-This post will explain how you can enable/disable light & dark mode for the website. Moreover, you'll learn how you can customize color schemes of the entire website.
+![Chá de Gengibre com Limão para Imunidade](https://images.unsplash.com/photo-1594631252845-29fc4586d51c?q=80&w=1000&auto=format&fit=crop)
+*Foto: Preparo natural de ervas e raízes.*
 
-## Table of contents
+Seja bem-vindo ao portal **Receita Grátis**. Hoje, iniciamos nossa jornada pela série **Cura Natureza**, trazendo o segredo para manter o corpo forte contra gripes e resfriados.
 
-## Enable/disable light & dark mode
+## Benefícios do Chá de Gengibre com Limão
 
-AstroPaper theme will include light and dark mode by default. In other words, there will be two color schemes\_ one for light mode and another for dark mode. This default behavior can be disabled in `SITE` configuration object.
+Esta bebida combina a ação anti-inflamatória do gengibre com a alta concentração de vitamina C do limão. É a escolha perfeita para quem busca saúde diretamente da terra.
 
-```js file="src/config.ts"
-export const SITE = {
-  website: "https://astro-paper.pages.dev/", // replace this with your deployed domain
-  author: "Sat Naing",
-  profile: "https://satnaing.dev/",
-  desc: "A minimal, responsive and SEO-friendly Astro blog theme.",
-  title: "AstroPaper",
-  ogImage: "astropaper-og.jpg",
-  lightAndDarkMode: true, // [!code highlight]
-  postPerIndex: 4,
-  postPerPage: 4,
-  scheduledPostMargin: 15 * 60 * 1000, // 15 minutes
-  showArchives: true,
-  showBackButton: true, // show back button in post detail
-  editPost: {
-    enabled: true,
-    text: "Suggest Changes",
-    url: "https://github.com/satnaing/astro-paper/edit/main/",
+### Tabela Nutricional (Por Porção)
+
+| Componente | Quantidade |
+| :--- | :--- |
+| Calorias | 12 kcal |
+| Vitamina C | 45% IDR |
+| Carboidratos | 3g |
+
+### Ingredientes
+*   500ml de água purificada.
+*   1 pedaço de gengibre (aprox. 3cm) fatiado.
+*   Suco de 1 limão espremido na hora.
+*   1 colher de mel (opcional).
+
+### Modo de Preparo
+1.  Ferva a água com o gengibre por cerca de 5 a 8 minutos.
+2.  Desligue o fogo e adicione o suco do limão.
+3.  Abafe por 2 minutos para infusão completa.
+4.  Sirva morno.
+
+---
+
+## Perguntas Frequentes (FAQ)
+
+**Posso tomar o chá gelado?**
+Sim, mas para fins de imunidade (Cura Natureza), o consumo morno é mais indicado para absorção.
+
+**Qual o melhor horário para consumir?**
+Pela manhã, ainda em jejum ou logo após o café da manhã, para acelerar o metabolismo.
+
+---
+
+<!-- SEO: DADOS ESTRUTURADOS PARA O GOOGLE -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Recipe",
+  "name": "Chá de Gengibre com Limão - Cura Natureza",
+  "author": {
+    "@type": "Person",
+    "name": "Anderson Kochanski"
   },
-  dynamicOgImage: true,
-  lang: "en", // html lang code. Set this empty and default will be "en"
-  timezone: "Asia/Bangkok", // Default global timezone (IANA format) https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-} as const;
-```
-
-To disable `light & dark mode` set `SITE.lightAndDarkMode` to `false`.
-
-## Choose initial color scheme
-
-By default, if we disable `SITE.lightAndDarkMode`, we will only get system's prefers-color-scheme.
-
-Thus, to choose an initial color scheme instead of prefers-color-scheme, we have to set color scheme in the `initialColorScheme` variable inside `theme.ts`.
-
-```ts file="src/scripts/theme.ts"
-// Initial color scheme
-// Can be "light", "dark", or empty string for system's prefers-color-scheme
-const initialColorScheme = ""; // "light" | "dark" // [!code hl]
-
-function getPreferTheme(): string {
-  // get theme data from local storage (user's explicit choice)
-  const currentTheme = localStorage.getItem("theme");
-  if (currentTheme) return currentTheme;
-
-  // return initial color scheme if it is set (site default)
-  if (initialColorScheme) return initialColorScheme;
-
-  // return user device's prefer color scheme (system fallback)
-  return window.matchMedia("(prefers-color-scheme: dark)").matches
-    ? "dark"
-    : "light";
+  "image": "https://images.unsplash.com/photo-1594631252845-29fc4586d51c",
+  "description": "Receita de chá para fortalecer a imunidade naturalmente.",
+  "recipeCategory": "Bebida",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "ratingCount": "150"
+  },
+  "prepTime": "PT5M",
+  "cookTime": "PT5M",
+  "totalTime": "PT10M"
 }
+</script>
 
-// ...
-```
-
-The **initialColorScheme** variable can hold two values\_ `"light"`, `"dark"`. You can leave the empty string (default) if you don't want to specify an initial color scheme.
-
-- `""` - system's prefers-color-scheme. (default)
-- `"light"` - use light mode as initial color scheme.
-- `"dark"` - use dark mode as initial color scheme.
-
-<details>
-<summary>Why initialColorScheme is not inside config.ts?</summary>
-To avoid color flickering on page reload, we have to place the theme initialization JavaScript code as early as possible when the page loads. The theme script is split into two parts: a minimal inline script in the `<head>` that sets the theme immediately, and the full script that loads asynchronously. This approach prevents FOUC (Flash of Unstyled Content) while maintaining optimal performance.
-</details>
-
-## Customize color schemes
-
-Both light & dark color schemes of AstroPaper theme can be customized in the `global.css` file.
-
-```css file="src/styles/global.css"
-@import "tailwindcss";
-@import "./typography.css";
-
-@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
-
-:root,
-html[data-theme="light"] {
-  --background: #fdfdfd;
-  --foreground: #282728;
-  --accent: #006cac;
-  --muted: #e6e6e6;
-  --border: #ece9e9;
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [{
+    "@type": "Question",
+    "name": "Quantas vezes posso tomar?",
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": "Recomenda-se 1 xícara por dia para manutenção da saúde."
+    }
+  }]
 }
-
-html[data-theme="dark"] {
-  --background: #212737;
-  --foreground: #eaedf3;
-  --accent: #ff6b01;
-  --muted: #343f60bf;
-  --border: #ab4b08;
-}
-/* ... */
-```
-
-In the AstroPaper theme, the `:root` and `html[data-theme="light"]` selectors define the light color scheme, while `html[data-theme="dark"]` defines the dark color scheme.
-
-To customize your own color scheme, specify your light colors inside `:root, html[data-theme="light"]`, and your dark colors inside `html[data-theme="dark"]`.
-
-Here is the detail explanation of color properties.
-
-| Color Property | Definition & Usage                                            |
-| -------------- | ------------------------------------------------------------- |
-| `--background` | Primary color of the website. Usually the main background.    |
-| `--foreground` | Secondary color of the website. Usually the text color.       |
-| `--accent`     | Accent color of the website. Link color, hover color etc.     |
-| `--muted`      | Card and scrollbar background color for hover state etc.      |
-| `--border`     | Border color. Used for border utilities and visual separation |
-
-Here is an example of changing the light color scheme.
-
-```css file="src/styles/global.css"
-/* ... */
-:root,
-html[data-theme="light"] {
-  --background: #f6eee1;
-  --foreground: #012c56;
-  --accent: #e14a39;
-  --muted: #efd8b0;
-  --border: #dc9891;
-}
-/* ... */
-```
-
-> Check out some [predefined color schemes](https://astro-paper.pages.dev/posts/predefined-color-schemes/) AstroPaper has already crafted for you.
+</script>
